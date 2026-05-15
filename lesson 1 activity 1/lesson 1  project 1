@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<!-- HTML document starts -->
+
+<head>
+    <title>Structure of HTML</title>
+    <!-- Title for browser tab -->
+</head>
+
+<body>
+    My name is Gunjan Singhal.
+    <!-- Line break -->
+    I am in class 11th.
+    <!-- Line break -->
+    I am from Haryana,India.
+    <!-- Line break -->
+     My hobbies are dancing,singing.
+    <!-- Line break -->
+     My favourite colour is lavender.
+    <!-- Line break -->
+     My favourite food is pasta.
+    <!-- Line break -->
+     My favourite car is a BMW.
+</body>
+<!-- Main content ends -->
+
+</html>
+<!-- HTML document ends -->
