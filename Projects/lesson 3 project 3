@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My dream school time-table</title>
+</head>
+
+<body>
+    <h1>My morning School Routine:</h1>
+    <ol><li>I wake up early and get ready for school</li>
+    <li>I put on my uniform</li>
+<li>Eat a light breakfast</li>
+<li>I reach the school on time</li>
+<li>I attend all my classes</li>
+</ol>
+<h1>Things I Would Like In My School</h1>
+<ul>
+    <li>A smart classroom</li>
+    <li>A great library with exquisite taste in novels</li>
+    <li>A professional dance room</li>
+</ul>
+<h1>My Dream Time-Table:</h1>
+<table border="3">
+    <tr>
+        <th>Day</th>
+        <th>Period 1</th>
+        <th>Period 2</th>
+        <th>Period 3</th>
+        <th>Period 4</th>
+        <th>Period 5</th>
+        <th>Period 6</th>
+        <th>Period 7</th>
+        </tr>
+        <tr><td>Monday</td>
+        <td>Mathematics</td>
+         <td>Eng</td>
+         <td>Physics</td>
+        <td>Computer Science</td>
+        <td>History</td>
+         <td>Chemistry</td>
+         <td>Physical Education</td>
+        </tr>
+        <tr><td>Tuesday</td>
+            <td>Biology</td>
+            <td>Mathematics</td>
+            <td>Geography</td>
+             <td>Eng</td>
+             <td>Chemistry</td>
+             <td>Art</td>
+             <td>Computer Science</td>
+        </tr>
+        <tr><td>Wednesday</td>
+        <td>Physics</td>
+        <td>Eng</td>
+        <td>Mathematics</td>
+         <td>Biology</td>
+        <td>Music</td>
+        <td>History</td>
+       <td>Chemistry</td></tr>
+       <tr><td>Thursday</td>
+        <td>Geography</td>
+       <td>Computer Science</td>
+        <td>Mathematics</td>
+        <td>Eng</td>
+        <td>Physics</td>
+       <td>Physical Education</td>
+       <td>Biology</td></tr>
+       </table>
+       <h1>Some important Links:</h1>
+       <p>Visit <a href="https://www.grammarly.com/">Grammarly</a> to improve english</p>
+       Visit <a href="https://scholar.google.com/">Scholar Google</a> it has all the reliable articles and research papers.
+</body>
+       
