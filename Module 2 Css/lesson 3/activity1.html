@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module 2 - Lesson 3 Activity 1 - My Superhero Card</title>
+<link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+    <style>
+        /* Typography — font, size, weight, colour for the whole page */
+        body {
+            background-color: darkblue;
+            color: white;
+            font-family: "Oswald" , sans-serif;
+        }
+
+
+        /* Typography + Text Shadow — big bold title with an orange shadow */
+        .hero-name {
+            font-size: 60px;
+            font-weight: bold;
+            color: yellow;
+            text-shadow: 5px 5px orange;
+        }
+
+
+        /* Typography + Text Transform — tagline becomes Title Case */
+        .tagline {
+            color:cornflowerblue;
+            text-transform: capitalize;
+            font-style:italic;
+            
+        }
+
+
+        /* Text Transform + Text Decoration — section headings in CAPS with underline */
+        .label {
+            text-transform: uppercase;
+            text-decoration: underline;
+            color: aquamarine;
+            font-weight: 900;
+        }
+
+
+        /* Typography — powers stand out in bold green */
+        .power {
+            color:green;
+            font-weight:700;
+        
+        }
+
+
+        /* Text Decoration — weaknesses are crossed out */
+        .weakness {
+            color:darkslateblue;
+            text-decoration:line-through
+        }
+
+
+        /* Transform — the badge is tilted to the side */
+        .badge {
+            font: size 28px;
+            font-weight:bold;
+            color:orchid;
+            background-color:burlywood;
+            transform: rotate(20deg);
+            display:inline-block;
+        }
+
+
+        /* Typography — footer text */
+        .footer {
+            font-style: italic;
+            color:ivory;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="hero-name">Thunder Kid</h1>
+    <p class="tagline">the most powerful hero in the school</p>
+
+    <h2 class="label">super powers</h2>
+    <p class="power">Can run faster than a cheetah</p>
+    <p class="power">Can lift a school bus</p>
+
+    <h2 class="label">weaknesses</h2>
+    <p class="weakness">Maths homework</p>
+    <p class="weakness">Broccoli</p>
+
+    <div class="badge">Best Superhero</div>
+
+    <p class="made-by">Created by Gunjan Singhal.</p>
+</body>
+
+</html>
