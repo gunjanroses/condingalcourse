@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Weather Forecast App</title>
+
+    <style>
+        /* Universal selector: applies basic settings to the full page */
+        * {
+            box-sizing: border-box;
+            font-family:Manrope;
+        }
+
+        /* Body background uses colour, image pattern, repeat, position, and attachment */
+        body {
+            background-color: #b0deef;
+            background-image: radial-gradient(circle, skyblue 4px, transparent 3px);
+            background-size: 40px 40px;
+            background-repeat: repeat;
+            background-position: top center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #f0f8ff;
+        }
+
+        .weather-card {
+            width: 400px;
+            border: 3px solid white;
+            border-radius: 20px;
+            background-image: linear-gradient(to bottom right, #1e90ff, cornflowerblue);
+        }
+
+        .weather-icon {
+            font-size: 70px;
+            animation: BounceIn 3s infinite alternate;
+        }
+
+        #temperature {
+            font-size: 48px;
+            font-weight: bold;
+            color: #fffacd;
+        }
+
+        .details {
+            font-size: 18px;
+            color: white;
+        }
+
+        .forecast-section {
+            width: 600px;
+            border: 3px solid white;
+            border-radius: 15px;
+            background-image: radial-gradient(circle, white, #add8e6);
+            color: #003366;
+        }
+
+        .forecast-title {
+            color: #003366;
+        }
+
+        .day {
+            border: 2px solid #4682b4;
+            font-size: 17px;
+            color: #003366;
+        }
+
+        /* Group selector: styles both headings together */
+        h2,
+        h3 {
+            color: white;
+        }
+
+        /* CSS animation using @keyframes */
+        @keyframes floatCloud {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Weather App Homepage</h1>
+
+    <p class="subtitle">
+        Make yourself more prepared by knowing todays weather.
+    </p>
+
+    <div class="weather-card">
+        <h2>Today's Weather</h2>
+
+        <div class="weather-icon">Cloud</div>
+
+        <p id="temperature">45°C</p>
+
+        <p class="details">City: Hisar</p>
+        <p class="details">Condition: Very Sunny</p>
+        <p class="details">Humidity: 86%</p>
+        <p class="details">Wind Speed: 5 km/h</p>
+    </div>
+
+    <h2>Weekly Forecast</h2>
+
+    <div class="forecast-section">
+        <h3 class="forecast-title">Next 5 Days</h3>
+
+        <p class="day">Monday: Windy - 42°C</p>
+        <p class="day">Tuesday: Cloudy - 41°C</p>
+        <p class="day">Wednesday: Rainy - 43°C</p>
+        <p class="day">Thursday: Sunny - 44°C</p>
+        <p class="day">Friday: Stormy - 40°C</p>
+    </div>
+
+</body>
+
+</html>
