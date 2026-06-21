@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Ice Cream Shop Menu</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            background-color: #fff4f8;
+            text-align: center;
+            color: black;
+        }
+
+        h1 {
+            color:cornflowerblue;
+            font-size: 36px;
+        }
+
+        h1+p {
+            color:rgb(93, 121, 172);
+            font-weight: bold;
+            background-color: #fbd7e9;
+            border-radius: 10px;
+        }
+
+        .shop-description::first-letter {
+            font-size: 36px;
+            color: #fba4d2;
+            font-weight: bold;
+        }
+
+        .menu-box {
+            width: 420px;
+            background-color: white;
+            border: 3px solid #ffa9d4;
+            border-radius: 15px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        ul>li {
+            list-style: none;
+            background-color: #fff0f5;
+            color: #5c2a4a;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #ffb6c1;
+        }
+
+        ul>li:nth-child(3) {
+            background-color: #fff3cd;
+            color: #b85c00;
+            border: 3px solid #ffa500;
+        }
+
+        ul>li:hover {
+            background-color: #ff69b4;
+            color: white;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        button {
+            background-color: #fc2992;
+            color:white;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #c9afe1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Ice Cream Shop Menu</h1>
+    <p>Welcom to Place For Unlimited Fun</p>
+    <p class="shop-description">
+        We serve delicious,fruity,sweet ice-cream scoops
+    </p>
+    <div class="menu-box">
+        <h2>Today's available flavours are:</h2>
+        <ul>
+            <li>Choco-chip</li>
+            <li>Choco-brownie</li>
+            <li>Crushed mango sorbe-Today's special</li>
+            <li>Butterscotch</li>
+            <li>Black current</li>
+        </ul>
+        <button>Order Now</button>
+    </div>
+</body>
+
+</html>
