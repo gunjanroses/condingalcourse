@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <title>School Club Website</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- STEP 1 - Bootstrap CSS link -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+        padding: 30px 15px;
+      }
+      h1 {
+        text-align: center;
+        color: #e597fb;
+      }
+      .club-card {
+        text-align: center;
+        border: 2px solid #f0aeff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #fff8e1;
+      }
+      .club-card h3 {
+        color: #da95d5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My School Clubs</h1>
+
+    <!-- STEP 2 - container keeps the layout neat and centred -->
+    <div class="container">
+      <!-- STEP 3 - row holds all the columns in one horizontal line -->
+      <div class="row">
+        <!-- STEP 4 - col-12: full width on phones
+                   col-md-6: half width on tablets
+                   col-lg-4: one-third on desktops -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="club-card">
+            <h3>Robotics Club</h3>
+            <p>I love to learn how to create robots and how the robot works internally.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="club-card">
+            <h3>Vocals Club</h3>
+            <p>I love to create new melodies on beats and using my voice to put all the pain in my songs.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-4">
+          <div class="club-card">
+            <h3>Dance Club</h3>
+            <p>I love to dance and create new moves on different beats.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5 - Bootstrap JS script -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
