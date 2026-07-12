@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My progress record!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <style>
+    body { background-color: #f4f7ff; font-family: Arial, sans-serif; }
+    .jumbotron { background-color: #e8edff; border-left: 6px solid #a2f6ff; }
+    .jumbotron h1 { color: #91c6ff; }
+    .section-title { color: #95b3ff; margin-top: 30px; margin-bottom: 15px; }
+    p { font-weight: bold; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+
+  <!-- TOPIC 1: JUMBOTRON -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>My progress record!</h1>
+      <p class="lead">Track your subjects, completed lessons, and learning progress in one place.</p>
+
+      <!-- TOPIC 2: BUTTONS -->
+      <button class="btn btn-danger">Economics</button>
+      <button class="btn btn-success">Business Studies</button>
+      <button class="btn btn-warning">English</button>
+      <button class="btn btn-info">Accountancy</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- TOPIC 3: BADGES -->
+    <h2 class="section-title">Lessons Completed <span class="badge badge-danger">18</span></h2>
+
+    <p>Accountancy<span class="badge badge-info">2 lessons</span></p>
+    <p>Business Studies <span class="badge badge-success">6 lessons</span></p>
+    <p>English <span class="badge badge-warning">5 lessons</span></p>
+    <p>Economics <span class="badge badge-danger">5 lessons</span></p>
+
+    <!-- TOPIC 4: PROGRESS BARS -->
+    <h2 class="section-title">Subject Progress</h2>
+
+    <p>Accountancy</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-info" style="width: 80%">80%</div>
+    </div>
+
+    <p>Business Studies</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" style="width: 65%">65%</div>
+    </div>
+
+    <p>English</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-warning" style="width: 55%">95%</div>
+    </div>
+
+    <p>Economics</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-danger" style="width: 70%">70%</div>
+    </div>
+
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
