@@ -1,0 +1,14 @@
+body {
+    font-family:  'Lato';
+}
+ 
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("flowers.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
