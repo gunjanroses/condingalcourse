@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Saffron & Stone is a contemporary Italian restaurant portfolio."
+    />
+    <title>Saffron & Stone | Contemporary Italian Kitchen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #402a32;
+        --muted: #806d74;
+        --cream: #fff5f6;
+        --paper: #fffafb;
+        --saffron: #c96b83;
+        --leaf: #8f4e64;
+        --line: #eed8dd;
+        --shadow: 0 20px 50px rgba(91, 49, 64, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--cream);
+        font-family: "DM Sans", sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+      .container {
+        width: min(1120px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        right: 0;
+        color: white;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 88px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font:
+          600 1.25rem "Playfair Display",
+          serif;
+        letter-spacing: 0.02em;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 50%;
+        color: #f3b2be;
+        font-size: 0.95rem;
+      }
+      .nav-links {
+        display: flex;
+        gap: 29px;
+        align-items: center;
+        font-size: 0.83rem;
+      }
+      .nav-links a {
+        opacity: 0.86;
+        transition:
+          color 0.2s ease,
+          opacity 0.2s ease;
+      }
+      .nav-links a:hover {
+        color: #f5b2be;
+        opacity: 1;
+      }
+      .nav-cta {
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 100px;
+        padding: 11px 17px;
+      }
+
+      .hero {
+        min-height: 720px;
+        display: grid;
+        align-items: center;
+        position: relative;
+        color: white;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(61, 27, 39, 0.92) 0%,
+            rgba(61, 27, 39, 0.7) 44%,
+            rgba(61, 27, 39, 0.16) 100%
+          ),
+          url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85")
+            center/cover;
+      }
+      .hero-content {
+        padding: 145px 0 105px;
+        max-width: 600px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: #f3b2be;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-weight: 700;
+        font-size: 0.68rem;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 30px;
+        height: 1px;
+        background: currentColor;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin: 0;
+      }
+      h1 {
+        font-size: clamp(3.4rem, 8vw, 6.65rem);
+        line-height: 0.96;
+        letter-spacing: -0.045em;
+        margin: 23px 0;
+      }
+      .hero-copy {
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 470px;
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid var(--saffron);
+        background: var(--saffron);
+        color: white;
+        border-radius: 4px;
+        padding: 14px 19px;
+        font-weight: 700;
+        font-size: 0.78rem;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+      .button:hover {
+        transform: translateY(-2px);
+        background: #b95770;
+      }
+      .button.alt {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.55);
+      }
+      .button.alt:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .hero-note {
+        position: absolute;
+        bottom: 34px;
+        right: max(24px, calc((100% - 1120px) / 2));
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.75rem;
+      }
+      .hero-note span {
+        display: grid;
+        place-items: center;
+        width: 31px;
+        height: 31px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+      }
+
+      section {
+        padding: 110px 0;
+      }
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+      .section-heading h2 {
+        margin-top: 13px;
+        font-size: clamp(2.1rem, 4vw, 3.3rem);
+        line-height: 1.05;
+      }
+      .section-heading p {
+        max-width: 350px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin: 0;
+        font-size: 0.92rem;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: 80px;
+      }
+      .about-image {
+        height: 480px;
+        border-radius: 4px;
+        object-position: center;
+        box-shadow: var(--shadow);
+      }
+      .about-text p {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 0.95rem;
+      }
+      .signature {
+        margin-top: 25px;
+        color: var(--leaf);
+        font:
+          600 1.45rem "Playfair Display",
+          serif;
+      }
+
+      .special-section {
+        background: var(--leaf);
+        color: white;
+      }
+      .special-section .section-heading p {
+        color: rgba(255, 255, 255, 0.69);
+      }
+      .special-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .dish {
+        background: #fff7f5;
+        color: var(--ink);
+        overflow: hidden;
+        border-radius: 4px;
+      }
+      .dish img {
+        height: 245px;
+      }
+      .dish-body {
+        padding: 21px 22px 23px;
+      }
+      .dish-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .dish h3 {
+        font-size: 1.32rem;
+      }
+      .price {
+        color: var(--saffron);
+        font-weight: 700;
+      }
+      .dish p {
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        margin: 12px 0 0;
+      }
+
+      .offer-band {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .offer {
+        min-height: 270px;
+        padding: 34px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 4px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+      }
+      .offer.featured {
+        background: #f3c1c6;
+        color: #4b2d36;
+        border-color: transparent;
+      }
+      .offer small {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.66rem;
+        font-weight: 700;
+        opacity: 0.7;
+      }
+      .offer h3 {
+        font-size: 2rem;
+        max-width: 330px;
+        margin: 22px 0 10px;
+      }
+      .offer p {
+        color: var(--muted);
+        font-size: 0.88rem;
+        max-width: 360px;
+        margin: 0;
+        line-height: 1.6;
+      }
+      .featured p {
+        color: #79515c;
+      }
+      .offer .offer-link {
+        margin-top: 20px;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .menu-section {
+        background: #f9e9ed;
+      }
+      .menu-layout {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 90px;
+      }
+      .menu-intro h2 {
+        font-size: clamp(2.4rem, 4vw, 3.6rem);
+        margin: 12px 0 20px;
+      }
+      .menu-intro p {
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 330px;
+      }
+      .menu-list {
+        border-top: 1px solid var(--line);
+      }
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .menu-item h3 {
+        font-size: 1.15rem;
+      }
+      .menu-item p {
+        color: var(--muted);
+        font-size: 0.78rem;
+        margin: 7px 0 0;
+      }
+      .menu-item strong {
+        color: var(--saffron);
+        font-size: 0.92rem;
+        white-space: nowrap;
+      }
+
+      .visit {
+        padding: 76px 0;
+        background: #4b2d3a;
+        color: white;
+      }
+      .visit-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+      }
+      .visit h2 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+      }
+      .visit p {
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.88rem;
+        margin: 12px 0 0;
+      }
+      footer {
+        padding: 25px 0;
+        background: #351f29;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.72rem;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      @media (max-width: 760px) {
+        .container {
+          width: min(100% - 34px, 560px);
+        }
+        .nav {
+          min-height: 76px;
+        }
+        .nav-links {
+          gap: 13px;
+          font-size: 0.7rem;
+        }
+        .nav-links a:nth-child(-n + 3) {
+          display: none;
+        }
+        .hero {
+          min-height: 690px;
+          background-position: 62% center;
+        }
+        .hero-content {
+          padding-top: 130px;
+        }
+        .hero-note {
+          right: 17px;
+          bottom: 22px;
+        }
+        section {
+          padding: 76px 0;
+        }
+        .section-heading,
+        .visit-content {
+          display: block;
+        }
+        .section-heading p {
+          margin-top: 20px;
+        }
+        .about-grid,
+        .menu-layout,
+        .offer-band {
+          grid-template-columns: 1fr;
+          gap: 38px;
+        }
+        .about-image {
+          height: 330px;
+        }
+        .special-grid {
+          grid-template-columns: 1fr;
+        }
+        .dish img {
+          height: 220px;
+        }
+        .visit .button {
+          margin-top: 26px;
+        }
+        .footer-inner {
+          display: block;
+        }
+        .footer-inner span {
+          display: block;
+          margin-top: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="#top"
+          ><span class="brand-mark">S</span> Saffron &amp; Stone</a
+        >
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#specials">Specials</a>
+          <a href="#offers">Offers</a>
+          <a href="#menu">Menu</a>
+          <a class="nav-cta" href="#visit">Reserve a table</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-content">
+          <span class="eyebrow">A modern Italian kitchen</span>
+          <h1>Food with a<br /><em>little soul.</em></h1>
+          <p class="hero-copy">
+            Seasonal ingredients, old family recipes, and a table made for
+            lingering. Welcome to our corner of the city.
+          </p>
+          <div class="button-row">
+            <a class="button" href="#menu">Explore the menu <span>→</span></a>
+            <a class="button alt" href="#visit">Find us</a>
+          </div>
+        </div>
+        <div class="hero-note"><span>↓</span> Scroll to discover</div>
+      </section>
+
+      <section id="about">
+        <div class="container about-grid">
+          <img
+            class="about-image"
+            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=85"
+            alt="Warmly lit restaurant dining room"
+          />
+          <div class="about-text">
+            <span class="eyebrow">Our story</span>
+            <h2>Rooted in tradition,<br />made for today.</h2>
+            <p>
+              We started Saffron &amp; Stone with a simple idea: the most
+              memorable meals are the ones that feel both surprising and
+              familiar. Our kitchen brings together bright regional flavours,
+              handmade breads, and the generous spirit of Italian hospitality.
+            </p>
+            <p>
+              Everything is cooked to order, shared at the centre, and served
+              with a smile.
+            </p>
+            <div class="signature">Made with warmth — Asha &amp; Dev</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="special-section" id="specials">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">From our cucina</span>
+              <h2>Special items</h2>
+            </div>
+            <p>
+              Our chef's favourites, changing with the seasons and the market.
+            </p>
+          </div>
+          <div class="special-grid">
+            <article class="dish">
+              <img
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85"
+                alt="Fresh pasta with herbs and parmesan"
+              />
+              <div class="dish-body">
+                <div class="dish-top">
+                  <h3>Burrata al Limone</h3>
+                  <span class="price">$16</span>
+                </div>
+                <p>Silky burrata, lemon oil, basil and grilled sourdough.</p>
+              </div>
+            </article>
+            <article class="dish">
+              <img
+                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85"
+                alt="Wood-fired Italian pizza"
+              />
+              <div class="dish-body">
+                <div class="dish-top">
+                  <h3>Pizza Bianca Tartufo</h3>
+                  <span class="price">$24</span>
+                </div>
+                <p>
+                  Wood-fired dough, fontina, wild mushrooms and black truffle.
+                </p>
+              </div>
+            </article>
+            <article class="dish">
+              <img
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=85"
+                alt="Creamy Italian pasta dish"
+              />
+              <div class="dish-body">
+                <div class="dish-top">
+                  <h3>Ravioli di Zucca</h3>
+                  <span class="price">$22</span>
+                </div>
+                <p>
+                  Delicate pumpkin ravioli, sage butter, amaretti and pecorino.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="offers">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Come hungry</span>
+              <h2>Sales &amp; offers</h2>
+            </div>
+            <p>
+              A little extra reason to make tonight a Saffron &amp; Stone night.
+            </p>
+          </div>
+          <div class="offer-band">
+            <article class="offer featured">
+              <div>
+                <small>Every Tuesday</small>
+                <h3>Two plates,<br />one perfect price.</h3>
+                <p>
+                  Enjoy any two signature mains and a side for $39. Dine in
+                  only.
+                </p>
+              </div>
+              <span class="offer-link">See Tuesday menu →</span>
+            </article>
+            <article class="offer">
+              <div>
+                <small>Weekday lunch</small>
+                <h3>Lunch, but make it lovely.</h3>
+                <p>
+                  A generous two-course lunch set for $19, served Monday through
+                  Friday, 11:30–3.
+                </p>
+              </div>
+              <span class="offer-link">Book a lunch table →</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="container menu-layout">
+          <div class="menu-intro">
+            <span class="eyebrow">What we're serving</span>
+            <h2>The general menu</h2>
+            <p>
+              Small plates for sharing, handmade pasta, and something sweet to
+              finish. Ask us about today's market specials.
+            </p>
+            <a class="button" href="#visit"
+              >Make a reservation <span>→</span></a
+            >
+          </div>
+          <div class="menu-list">
+            <article class="menu-item">
+              <div>
+                <h3>Arancini al Tartufo</h3>
+                <p>Crisp risotto, mozzarella, truffle and basil aioli</p>
+              </div>
+              <strong>$14</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Tagliolini al Limone</h3>
+                <p>Hand-cut pasta, Amalfi lemon, parmesan and cracked pepper</p>
+              </div>
+              <strong>$23</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Risotto ai Funghi</h3>
+                <p>Arborio rice, wild mushrooms, thyme and aged parmesan</p>
+              </div>
+              <strong>$25</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Focaccia al Rosmarino</h3>
+                <p>Sea salt, rosemary, extra virgin olive oil and olives</p>
+              </div>
+              <strong>$8</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Panna Cotta alla Vaniglia</h3>
+                <p>Vanilla bean cream, berry compote and almond biscotti</p>
+              </div>
+              <strong>$10</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="visit" id="visit">
+        <div class="container visit-content">
+          <div>
+            <span class="eyebrow">Your table is waiting</span>
+            <h2>Let's make it a memorable meal.</h2>
+            <p>18 Willow Street · Open Tuesday–Sunday, 11:30–10:00</p>
+          </div>
+          <a class="button" href="mailto:hello@saffronandstone.com"
+            >Reserve a table <span>→</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-inner">
+        <span>© 2026 Saffron &amp; Stone</span
+        ><span>Instagram · hello@saffronandstone.com</span>
+      </div>
+    </footer>
+  </body>
+</html>
