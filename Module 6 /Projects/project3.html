@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Northstar Bank balance and transaction dashboard."
+    />
+    <title>Northstar Bank | Account Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #12263a;
+        --blue: #1769aa;
+        --mint: #dff4ec;
+        --green: #16805c;
+        --red: #c64b55;
+        --paper: #f7fbfd;
+        --line: #d8e5ec;
+        --muted: #657785;
+        --shadow: 0 24px 60px rgba(18, 38, 58, 0.12);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--navy);
+        background:
+          radial-gradient(circle at 5% 0%, #e2f3fb 0, transparent 31%),
+          var(--paper);
+        font-family: "DM Sans", sans-serif;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      .shell {
+        width: min(1080px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        color: white;
+        background: var(--navy);
+        border-radius: 12px;
+        font:
+          700 1.25rem "Space Grotesk",
+          sans-serif;
+      }
+      .brand-name {
+        font:
+          700 1.25rem "Space Grotesk",
+          sans-serif;
+        letter-spacing: -0.03em;
+      }
+      .secure {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+      .secure::before {
+        content: "•";
+        color: var(--green);
+        margin-right: 7px;
+        font-size: 1.15rem;
+      }
+      main {
+        padding: 28px 0 60px;
+      }
+      .intro {
+        margin-bottom: 28px;
+      }
+      .eyebrow {
+        color: var(--blue);
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+      h1 {
+        margin-top: 8px;
+        font:
+          700 clamp(2rem, 5vw, 3.4rem) "Space Grotesk",
+          sans-serif;
+        letter-spacing: -0.055em;
+      }
+      .intro p {
+        margin-top: 10px;
+        color: var(--muted);
+      }
+      .dashboard {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+        align-items: start;
+      }
+      .balance-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 280px;
+        padding: 32px;
+        color: white;
+        background: linear-gradient(135deg, #123b5d, #1769aa);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .balance-card::after {
+        content: "";
+        position: absolute;
+        right: -55px;
+        bottom: -90px;
+        width: 250px;
+        height: 250px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 28px rgba(255, 255, 255, 0.05),
+          0 0 0 56px rgba(255, 255, 255, 0.04);
+      }
+      .card-label {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.84rem;
+      }
+      .balance {
+        position: relative;
+        z-index: 1;
+        margin: 15px 0 40px;
+        font:
+          700 clamp(2.5rem, 7vw, 4.3rem) "Space Grotesk",
+          sans-serif;
+        letter-spacing: -0.06em;
+      }
+      .account-number {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+      }
+      .panel {
+        padding: 28px;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 12px 30px rgba(18, 38, 58, 0.06);
+      }
+      h2 {
+        font:
+          700 1.25rem "Space Grotesk",
+          sans-serif;
+        letter-spacing: -0.03em;
+      }
+      .panel-copy {
+        margin: 7px 0 22px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+      .amount-wrap {
+        position: relative;
+      }
+      .currency {
+        position: absolute;
+        top: 14px;
+        left: 15px;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      input {
+        width: 100%;
+        padding: 13px 14px 13px 32px;
+        color: var(--navy);
+        background: #fbfdfe;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        outline: none;
+      }
+      input:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.13);
+      }
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .action {
+        padding: 13px 10px;
+        border: 0;
+        border-radius: 8px;
+        color: white;
+        font-weight: 700;
+        transition:
+          transform 0.2s ease,
+          filter 0.2s ease;
+      }
+      .action:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.07);
+      }
+      .credit {
+        background: var(--green);
+      }
+      .debit {
+        background: var(--red);
+      }
+      .message {
+        min-height: 20px;
+        margin-top: 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .message.error {
+        color: var(--red);
+      }
+      .message.success {
+        color: var(--green);
+      }
+      .history {
+        grid-column: 1 / -1;
+      }
+      .history-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+      .history-heading span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+      .transactions {
+        display: grid;
+        gap: 10px;
+      }
+      .transaction {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 16px;
+        background: #fbfdfe;
+        border: 1px solid #e7eff3;
+        border-radius: 10px;
+      }
+      .transaction-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .transaction-icon {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        font-weight: 700;
+      }
+      .transaction-icon.credit {
+        color: var(--green);
+        background: var(--mint);
+      }
+      .transaction-icon.debit {
+        color: var(--red);
+        background: #fbe7e8;
+      }
+      .transaction-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .transaction-date {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .transaction-amount {
+        font-weight: 700;
+      }
+      .transaction-amount.credit {
+        color: var(--green);
+      }
+      .transaction-amount.debit {
+        color: var(--red);
+      }
+      @media (max-width: 700px) {
+        .shell {
+          width: min(100% - 28px, 540px);
+        }
+        .topbar {
+          padding-top: 20px;
+        }
+        .secure {
+          display: none;
+        }
+        main {
+          padding-top: 18px;
+        }
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+        .balance-card {
+          min-height: 245px;
+          padding: 25px;
+        }
+        .panel {
+          padding: 22px;
+        }
+        .history {
+          grid-column: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">N</div>
+          <div class="brand-name">Northstar Bank</div>
+        </div>
+        <div class="secure">Secure account</div>
+      </header>
+      <main>
+        <section class="intro">
+          <div class="eyebrow">Personal banking</div>
+          <h1>Good morning, Alex.</h1>
+          <p>Here is the latest activity on your everyday account.</p>
+        </section>
+        <section class="dashboard" aria-label="Bank account dashboard">
+          <article class="balance-card">
+            <div class="card-label">Available balance</div>
+            <div class="balance" id="balance">$5,280.45</div>
+            <div class="account-number">Everyday Checking •••• 4821</div>
+          </article>
+          <section class="panel" aria-labelledby="transfer-title">
+            <h2 id="transfer-title">Update balance</h2>
+            <p class="panel-copy">
+              Enter an amount, then choose whether to credit or debit your
+              account.
+            </p>
+            <label for="amount">Amount</label>
+            <div class="amount-wrap">
+              <span class="currency">$</span
+              ><input
+                id="amount"
+                type="number"
+                min="0.01"
+                step="0.01"
+                placeholder="0.00"
+                inputmode="decimal"
+              />
+            </div>
+            <div class="actions">
+              <button class="action credit" id="creditButton" type="button">
+                ＋ Credit</button
+              ><button class="action debit" id="debitButton" type="button">
+                − Debit
+              </button>
+            </div>
+            <div
+              class="message"
+              id="message"
+              role="status"
+              aria-live="polite"
+            ></div>
+          </section>
+          <section class="panel history" aria-labelledby="history-title">
+            <div class="history-heading">
+              <h2 id="history-title">Recent activity</h2>
+              <span id="transactionCount">3 transactions</span>
+            </div>
+            <div class="transactions" id="transactions">
+              <div class="transaction">
+                <div class="transaction-info">
+                  <div class="transaction-icon credit">＋</div>
+                  <div>
+                    <div class="transaction-name">Paycheck</div>
+                    <div class="transaction-date">Today, 9:24 AM</div>
+                  </div>
+                </div>
+                <div class="transaction-amount credit">+$2,400.00</div>
+              </div>
+              <div class="transaction">
+                <div class="transaction-info">
+                  <div class="transaction-icon debit">−</div>
+                  <div>
+                    <div class="transaction-name">Grocery Market</div>
+                    <div class="transaction-date">Yesterday, 6:12 PM</div>
+                  </div>
+                </div>
+                <div class="transaction-amount debit">−$86.42</div>
+              </div>
+              <div class="transaction">
+                <div class="transaction-info">
+                  <div class="transaction-icon debit">−</div>
+                  <div>
+                    <div class="transaction-name">Monthly rent</div>
+                    <div class="transaction-date">Sep 1, 2026</div>
+                  </div>
+                </div>
+                <div class="transaction-amount debit">−$1,250.00</div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+    <script>
+      let currentBalance = 5280.45;
+      const balanceElement = document.getElementById("balance");
+      const amountInput = document.getElementById("amount");
+      const messageElement = document.getElementById("message");
+      const transactionsElement = document.getElementById("transactions");
+      const transactionCountElement =
+        document.getElementById("transactionCount");
+      function formatCurrency(value) {
+        return value.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
+      }
+      function updateBalance(amount, type) {
+        if (!Number.isFinite(amount) || amount <= 0) {
+          messageElement.textContent =
+            "Please enter an amount greater than $0.00.";
+          messageElement.className = "message error";
+          amountInput.focus();
+          return;
+        }
+        if (type === "debit" && amount > currentBalance) {
+          messageElement.textContent =
+            "This debit is larger than your available balance.";
+          messageElement.className = "message error";
+          return;
+        }
+        currentBalance += type === "credit" ? amount : -amount;
+        balanceElement.textContent = formatCurrency(currentBalance);
+        const row = document.createElement("div");
+        row.className = "transaction";
+        const sign = type === "credit" ? "+" : "−";
+        const label = type === "credit" ? "Manual credit" : "Manual debit";
+        const amountClass = type === "credit" ? "credit" : "debit";
+        row.innerHTML = `<div class="transaction-info"><div class="transaction-icon ${amountClass}">${sign}</div><div><div class="transaction-name">${label}</div><div class="transaction-date">Just now</div></div></div><div class="transaction-amount ${amountClass}">${sign}${formatCurrency(amount)}</div>`;
+        transactionsElement.prepend(row);
+        transactionCountElement.textContent = `${transactionsElement.children.length} transactions`;
+        messageElement.textContent = `${label} of ${formatCurrency(amount)} complete.`;
+        messageElement.className = "message success";
+        amountInput.value = "";
+      }
+      document
+        .getElementById("creditButton")
+        .addEventListener("click", () =>
+          updateBalance(Number(amountInput.value), "credit"),
+        );
+      document
+        .getElementById("debitButton")
+        .addEventListener("click", () =>
+          updateBalance(Number(amountInput.value), "debit"),
+        );
+      amountInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter")
+          updateBalance(Number(amountInput.value), "credit");
+      });
+    </script>
+  </body>
+</html>
