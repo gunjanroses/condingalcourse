@@ -75,7 +75,7 @@ for (let i = 0; i < operator.length; i++) {
         }
       }
     }
-  });x
+  });
 }
 
 let number = document.getElementsByClassName("number");
@@ -88,3 +88,39 @@ for (let i = 0; i < number.length; i++) {
     }
   });
 }
+async function fetchWeather() {
+  let city='';
+  const API_KEY = "bdf11506ec64ac75da0e70ff6be4b783";
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+   try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP Error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+
+    document.getElementById('temperature').innerHTML = data.main.temp + "°C";
+
+    let weatherType = data.weather[0].main;
+    let weatherEmoji;
+    if(weatherType=="Clear") {
+      weatherEmoji = "☀️";
+    } else if(weatherType=="Clouds") {
+      weatherEmoji = "☁️";
+    } else if(weatherType=="Rain") {
+      weatherEmoji = "🌧️";
+    } else if(weatherType=="Snow") {
+      weatherEmoji = "❄️";
+    } else if(weatherType=="Thunderstorm") {
+      weatherEmoji = "⛈️";
+    }
+    document.getElementById('weather-type').innerHTML = weatherEmoji + weatherType;
+
+    document.getElementById("city-name").innerHTML = city;
+   } catch (error) {
+    console.error(error);
+   }
+
+}
+fetchWeather();
